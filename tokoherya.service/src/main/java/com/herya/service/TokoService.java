@@ -6,4 +6,6 @@ import java.util.UUID;
 
 public interface TokoService {
     TokoDto getTokoById(UUID tokoId);
+
+    TokoDto saveNewToko(TokoDto tokoDto);
 }

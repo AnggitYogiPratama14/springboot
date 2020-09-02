@@ -13,4 +13,11 @@ public class TokoServiceImpl implements TokoService {
                 .tokoStyle("mini")
                 .build();
     }
+    @Override
+    public TokoDto saveNewToko(TokoDto tokoDto){
+        return TokoDto.builder()
+                .id(UUID.randomUUID())
+                .build();
+    }
+
 }

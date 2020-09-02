@@ -2,12 +2,10 @@ package com.herya.controller;
 
 import com.herya.model.TokoDto;
 import com.herya.service.TokoService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -22,5 +20,16 @@ public class TokoController {
     @GetMapping({"/{tokoId}"})
     public ResponseEntity<TokoDto> getToko(@PathVariable("tokoId")UUID tokoId){
         return new ResponseEntity<>(tokoService.getTokoById(tokoId), HttpStatus.OK);
+    }
+
+    @PostMapping // Untuk membuat toko baru
+    public ResponseEntity handlePost(TokoDto tokoDto){
+        TokoDto savedDto = tokoService.saveNewToko(tokoDto);
+
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.add(" location","/api/v1/toko/" + savedDto.getId().toString());
+
+        return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 }
