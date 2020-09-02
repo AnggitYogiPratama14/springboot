@@ -1,0 +1,7 @@
+Apply Packet limitation per each Partner (SPJIT SV di Modchan) 
+with rule :
+1.Limit per Day/ month, per partner (limit configurable)
+2.Quota reset per day/ month (Quota configurable)
+3.Counter stock as per partner (not per aggregator)
+4.Product accumulation as per variant SPJIT SV (Special Products)
+5.Others SP JIT products as is (no limitation)
