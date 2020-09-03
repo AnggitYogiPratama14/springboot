@@ -32,4 +32,10 @@ public class TokoController {
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
+
+    @PutMapping({"/{tokoId"})
+    public ResponseEntity handleUpdate(@PathVariable("tokoId")UUID tokoId, TokoDto tokoDto){
+        tokoService.updateToko(tokoId, tokoDto);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
 }
