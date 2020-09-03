@@ -38,4 +38,10 @@ public class TokoController {
         tokoService.updateToko(tokoId, tokoDto);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
+
+    @DeleteMapping({"/{tokoId}"})
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteToko(@PathVariable("tokoId") UUID tokoId){
+        tokoService.deleteToko(tokoId);
+    }
 }
